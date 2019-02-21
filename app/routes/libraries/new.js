@@ -7,7 +7,7 @@ export default Route.extend({
   },
 
   actions: {
-      
+
     //we send the application back to the Libraries home page with transitionTo.
     saveLibrary(newLibrary) {
       newLibrary.save().then(() => this.transitionTo('libraries'));
@@ -22,4 +22,5 @@ export default Route.extend({
       this.controller.get('model').rollbackAttributes();
     }
   }
-});
+}); 
+
