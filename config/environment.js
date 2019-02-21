@@ -6,6 +6,22 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+
+    firebase: {
+      apiKey: "AIzaSyCFXZkqh6lkEDJ9DlkpfF8EHg4AjRy5st8",
+      authDomain: "library-yoember-71c83.firebaseapp.com",
+      databaseURL: "https://library-yoember-71c83.firebaseio.com",
+      projectId: "library-yoember-71c83",
+      storageBucket: "library-yoember-71c83.appspot.com",
+      messagingSenderId: "680805751372"
+    },
+
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -20,7 +36,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+    
+  
+
   };
 
   if (environment === 'development') {
