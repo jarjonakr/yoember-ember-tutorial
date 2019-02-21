@@ -1,9 +1,10 @@
+// app/controllers/index.js
 import Controller from '@ember/controller';
 import { match, not } from '@ember/object/computed';
 
 export default Controller.extend({
 
-  headerMessage: 'wowo comnin soon',
+  headerMessage: 'Coming Soon',
   responseMessage: '',
   emailAddress: '',
 
@@ -15,12 +16,14 @@ export default Controller.extend({
     saveInvitation() {
       const email = this.get('emailAddress');
 
-      const newInvitation = this.store.createRecord('invitation', { email: email });
-      newInvitation.save();
+      const newInvitation = this.store.createRecord('invitation', { email });
 
-      this.set('responseMessage', `Thank you! We have just saved your email address: ${this.get('emailAddress')}`);
-      this.set('emailAddress', '');
+      newInvitation.save().then(response => {
+        this.set('responseMessage', `Thank you! We saved your email address with the following id: ${response.get('id')}`);
+        this.set('emailAddress', '');
+      });
+
     }
   }
 
-}); 
+});
